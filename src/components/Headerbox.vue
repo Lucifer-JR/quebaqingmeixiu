@@ -77,11 +77,11 @@ export default {
         }
         .header-left li a{
             text-decoration: none;
-            color: #fff;
+            color: #c8c7bc;
         }
-         .header-left li a:hover {
+         /* .header-left li a:hover {
             color: #c8c8c8;
-        }
+        } */
 
         .header-right li {
             float: right;
@@ -92,7 +92,6 @@ export default {
         }
 
         header li:hover {
-            color: #fff;
             background: black
         }
 

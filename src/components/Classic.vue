@@ -42,7 +42,6 @@
 export default {
   name: 'Classic',
   
- 
   data() {
     return {
       typeList: [
