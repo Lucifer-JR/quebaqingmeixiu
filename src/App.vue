@@ -6,6 +6,8 @@
     </div>
     <Backtop/>
     <Gongxinbu/>
+    <Signin v-show="this.$store.state.ifsignin"/>
+    <Signup v-show="this.$store.state.ifsignup"/>
   </div>
 </template>
 
@@ -18,34 +20,44 @@ import Mine from './components/Mine'
 import Classic from './components/Classic'
 import Works from './components/Works'
 import Creator from './components/Creator'
+import Signin from "./components/Signin";
+import Signup from "./components/Signup";
 
 export default {
   name: 'App',
   components:{
-    Gongxinbu,
-    Backtop,
-    Home,
     Headerbox,
+    
+    Home,
     Mine,
     Classic,
     Creator,
-    Works
+    Works,
+
+    Signin,
+    Signup,
+
+    Backtop,
+    Gongxinbu,
   }
 }
 </script>
 
 <style>
-body{
-  background: #E1E0C7
-}
-#app {
+#app{
+  background-image:url("../static/background.jpg");
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  padding-top: 60px;
+} 
+/* #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
+  text-align: center;
   color: #2c3e50;
-  /* margin-top: 60px; */
-}
+  margin-top: 60px;
+} */
 * {
             margin: 0;
             padding: 0;

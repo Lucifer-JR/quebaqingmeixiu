@@ -18,13 +18,13 @@
                 <span>男</span>
               </li>
               <li class="habitation">
-                星座&nbsp;&nbsp;
-                <span>射手</span>
+                邮箱&nbsp;&nbsp;
+                <span>1091564315@qq.com</span>
               </li>
             </div>
             <div class="signature">
               <div class="signaturetop">
-                <div class="signature-left">最喜欢的</div>
+                <div class="signature-left"></div>
                 <div class="signaturetop-right">
                   <span @click="editsignature">
                     <i class="iconfont iconsquare_pencil"></i>编辑
@@ -67,6 +67,7 @@
         </ul>
       </div>
       <div class="right"></div>
+      
     </li>
   </div>
 </template>
@@ -74,15 +75,18 @@
 <script>
 import Likehot from "./Likehot";
 
+
 export default {
   name: "Mine",
   components:{
-    Likehot
+    Likehot,
+   
   },
   data() {
     return {
       ifsignature: true,
-      signature: "一壶浊酒喜相逢，古今多少事"+"\n"+"都付笑谈中",
+
+      signature: "一壶浊酒喜相逢"+"\n"+"古今多少事"+"\n"+"都付笑谈中",
       CreateList: [
         {
           id: 1,
@@ -270,7 +274,7 @@ export default {
 }
 .signature {
   float: right;
-  width: 320px;
+  width: 270px;
   height: 170px;
   /* border:1px solid #BCE8F1; */
   background: #e1e0c7;
@@ -310,8 +314,8 @@ export default {
 }
 #signaturemain{
   white-space: pre-line;
-  font-size: 18px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 22px;
 
 }
 #signaturemain1 {
