@@ -1,54 +1,67 @@
 <template>
   <div>
-    <img src="../../static/like.png" title="喜欢" class="like" @click="changeSrc1($event,index)" />
-    <div class="likeNumber">{{this.CreateList[index].LikeNum}}</div>
-    <img src="../../static/unlike.png" title="不喜欢" class="like" @click="changeSrc2($event,index)" />
-    <div class="unlikeNumber">{{this.CreateList[index].UnLikeNum}}</div>
-    <img src="../../static/star.png" title="收藏" class="like" @click="changeSrc3($event,index)" />
-    <div class="unlikeNumber">{{this.CreateList[index].CollectNum}}</div>
+    <img
+      :src="this.CreateList[index1].ifLike ? '../../static/like_fill.png' : '../../static/like.png'"
+      title="喜欢"
+      @click="changeSrc1(index1)"
+    />
+    <div class="likeNumber">{{CreateList[index1].LikeNum}}</div>
+    <img
+      :src='this.CreateList[index1].ifUnlike ? "../../static/unlike_fill.png":"../../static/unlike.png"'
+      title="不喜欢"
+      @click="changeSrc2(index1)"
+    />
+    <div class="unlikeNumber">{{CreateList[index1].UnLikeNum}}</div>
+    <img
+      :src='this.CreateList[index1].ifCollect ? "../../static/star_fill.png":"../../static/star.png"'
+      title="收藏"
+      @click="changeSrc3(index1)"
+    />
+    <div class="unlikeNumber">{{CreateList[index1].CollectNum}}</div>
   </div>
 </template>
 
 <script>
 export default {
   name: "Likehot",
-  props: ["index", "CreateList"],
+  props: ["id"],
   data() {
-    return {};
+    return {
+      CreateList: this.$store.state.CreateList
+    };
+  },
+  computed:{
+    index1:function(){
+      console.log(this.CreateList.findIndex(e=>e.id==this.id))
+      return this.CreateList.findIndex(e=>e.id==this.id)
+    }
   },
   methods: {
-    changeSrc1(e, i) {
+    changeSrc1(i) {
       if (this.CreateList[i].ifLike) {
-        e.target.src = "../../static/like_fill.png";
-        this.CreateList[i].LikeNum++;
-      } else {
-        e.target.src = "../../static/like.png";
         this.CreateList[i].LikeNum--;
+      } else {
+        this.CreateList[i].LikeNum++;
       }
-      this.CreateList[i].ifLike = !this.CreateList[i].ifLike
+      this.CreateList[i].ifLike = !this.CreateList[i].ifLike;
     },
 
-    changeSrc2(e, i) {
-      if (this.CreateList[i].ifLike) {
-        e.target.src = "../../static/unlike_fill.png";
-        this.CreateList[i].UnLikeNum++;
-      } else {
-        e.target.src = "../../static/unlike.png";
+    changeSrc2(i) {
+      if (this.CreateList[i].ifUnlike) {
         this.CreateList[i].UnLikeNum--;
+      } else {
+        this.CreateList[i].UnLikeNum++;
       }
-      this.CreateList[i].ifLike = !this.CreateList[i].ifLike;
-      
+      this.CreateList[i].ifUnlike = !this.CreateList[i].ifUnlike;
     },
 
-    changeSrc3(e, i) {
-      if (this.CreateList[i].ifLike) {
-        e.target.src = "../../static/star_fill.png";
-        this.CreateList[i].CollectNum++;
-      } else {
-        e.target.src = "../../static/star.png";
+    changeSrc3(i) {
+      if (this.CreateList[i].ifCollect) {
         this.CreateList[i].CollectNum--;
+      } else {
+        this.CreateList[i].CollectNum++;
       }
-      this.CreateList[i].ifLike = !this.CreateList[i].ifLike;
+      this.CreateList[i].ifCollect = !this.CreateList[i].ifCollect;
     }
   }
 };
@@ -56,7 +69,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.like {
+img {
   width: 27px;
   height: 26px;
   cursor: pointer;

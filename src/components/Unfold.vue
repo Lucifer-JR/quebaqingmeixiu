@@ -1,7 +1,11 @@
 <template>
   <div class="unfold" @click="unfold">
     {{Unfold}}
-    <img :src='(this.ifunfold==true) ? "../../static/down.png":"../../static/up.png"' class="unfoldimage" ref="unfold" />
+    <img
+      :src='(this.ifunfold==true) ? "../../static/down.png":"../../static/up.png"'
+      class="unfoldimage"
+      ref="unfold"
+    />
   </div>
 </template>
 
@@ -11,18 +15,18 @@ export default {
   data() {
     return {
       Unfold: "展开",
-      ifunfold:true
+      ifunfold: true
     };
   },
   methods: {
     unfold() {
-        this.$emit('func')
-        if(this.ifunfold){
-            this.Unfold = "收起";
-        }else{
-            this.Unfold = "展开";
-        }
-        this.ifunfold=!this.ifunfold;
+      this.$emit("func");
+      if (this.ifunfold) {
+        this.Unfold = "收起";
+      } else {
+        this.Unfold = "展开";
+      }
+      this.ifunfold = !this.ifunfold;
     }
   }
 };

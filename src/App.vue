@@ -8,6 +8,7 @@
     <Gongxinbu/>
     <Signin v-show="this.$store.state.ifsignin"/>
     <Signup v-show="this.$store.state.ifsignup"/>
+    <Torecomend v-show="this.$store.state.iftorecomend"/>
   </div>
 </template>
 
@@ -22,6 +23,7 @@ import Works from './components/Works'
 import Creator from './components/Creator'
 import Signin from "./components/Signin";
 import Signup from "./components/Signup";
+import Torecomend from "./components/Torecomend";
 
 export default {
   name: 'App',
@@ -36,6 +38,7 @@ export default {
 
     Signin,
     Signup,
+    Torecomend,
 
     Backtop,
     Gongxinbu,
@@ -54,14 +57,11 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 } */
 * {
-            margin: 0;
-            padding: 0;
-            list-style: none
+   margin: 0;
+   padding: 0;
+   list-style: none
       }
 
 </style>
